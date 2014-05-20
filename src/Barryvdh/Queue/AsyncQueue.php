@@ -64,7 +64,7 @@ class AsyncQueue extends Queue implements QueueInterface {
         $command = sprintf($string, $payload, $environment);
 
         if (strlen($command) > 8191 && substr(php_uname(), 0, 7) == "Windows") {
-            throw new \Exception('Total async job command was more than 8191 characters which is not supported by Windows.');
+            throw new \Exception('Total async job command was more than 8191 characters which is not supported by Windows cmd.');
         }
 
         return new Process($command, $cwd);
